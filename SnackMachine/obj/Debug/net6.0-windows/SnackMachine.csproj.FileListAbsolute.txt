@@ -1,0 +1,7 @@
+C:\Users\User\source\repos\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.Form1.resources
+C:\Users\User\source\repos\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.csproj.GenerateResource.cache
+C:\Users\User\source\repos\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.AssemblyInfo.cs
+C:\Users\User\source\repos\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.csproj.CoreCompileInputs.cache
