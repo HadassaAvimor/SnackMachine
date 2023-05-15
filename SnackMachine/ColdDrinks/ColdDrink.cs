@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SnackMachine
+namespace SnackMachine.ColdDrinks
 {
-    internal class Format
+    public class ColdDrink
     {
+        
     }
 }

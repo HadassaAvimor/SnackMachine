@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace SnackMachine
 {
-    internal class StockListeners
+    public class StockListeners
     {
+        public bool Update()
+        {
+            return false;
+        }
     }
 }

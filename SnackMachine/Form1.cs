@@ -6,5 +6,14 @@ namespace SnackMachine
         {
             InitializeComponent();
         }
+
+        private void snackBtn_Click(object sender, EventArgs e)
+        {
+            title.Text = "כל החטיפים מיוצרים מקמח שנטחן לאחר הפסח";
+            Controls.Remove(coldDrinkBtn);
+            Controls.Remove(hotDrinkBtn);
+            Controls.Remove(snackBtn);
+
+        }
     }
 }

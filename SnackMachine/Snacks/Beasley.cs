@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SnackMachine.Snacks
 {
-    internal class Bisli
+    public class Beasley
     {
     }
 }

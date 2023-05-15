@@ -28,12 +28,82 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            title = new Label();
+            snackBtn = new Button();
+            coldDrinkBtn = new Button();
+            hotDrinkBtn = new Button();
+            slogen = new Label();
+            SuspendLayout();
+            // 
+            // title
+            // 
+            title.AutoSize = true;
+            title.BackColor = SystemColors.Control;
+            title.Location = new Point(373, 77);
+            title.Name = "title";
+            title.Size = new Size(111, 20);
+            title.TabIndex = 0;
+            title.Text = "?מה בא לך היום";
+            // 
+            // snackBtn
+            // 
+            snackBtn.Location = new Point(525, 160);
+            snackBtn.Name = "snackBtn";
+            snackBtn.Size = new Size(152, 29);
+            snackBtn.TabIndex = 1;
+            snackBtn.Text = "חטיפים";
+            snackBtn.UseVisualStyleBackColor = true;
+            snackBtn.Click += snackBtn_Click;
+            // 
+            // coldDrinkBtn
+            // 
+            coldDrinkBtn.Location = new Point(325, 160);
+            coldDrinkBtn.Name = "coldDrinkBtn";
+            coldDrinkBtn.Size = new Size(159, 29);
+            coldDrinkBtn.TabIndex = 2;
+            coldDrinkBtn.Text = "שתיה קרה מרעננת";
+            coldDrinkBtn.UseVisualStyleBackColor = true;
+            // 
+            // hotDrinkBtn
+            // 
+            hotDrinkBtn.Location = new Point(138, 160);
+            hotDrinkBtn.Name = "hotDrinkBtn";
+            hotDrinkBtn.Size = new Size(152, 29);
+            hotDrinkBtn.TabIndex = 3;
+            hotDrinkBtn.Text = "שתיה חמה לנפש";
+            hotDrinkBtn.UseVisualStyleBackColor = true;
+            // 
+            // slogen
+            // 
+            slogen.AutoSize = true;
+            slogen.Location = new Point(348, 374);
+            slogen.Name = "slogen";
+            slogen.Size = new Size(163, 20);
+            slogen.TabIndex = 4;
+            slogen.Text = "אכול ושתה כי מחר נמות";
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(slogen);
+            Controls.Add(hotDrinkBtn);
+            Controls.Add(coldDrinkBtn);
+            Controls.Add(snackBtn);
+            Controls.Add(title);
+            Name = "Form1";
+            Text = "Form1";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label title;
+        private Button snackBtn;
+        private Button coldDrinkBtn;
+        private Button hotDrinkBtn;
+        private Label slogen;
     }
 }

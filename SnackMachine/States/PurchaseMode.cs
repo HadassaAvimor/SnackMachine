@@ -15,7 +15,7 @@ namespace SnackMachine.States
         }
         public Bag AddBag()
         {
-            return new GiftWrap();
+            return new Bag();
         }
     }
 }

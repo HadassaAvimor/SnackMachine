@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SnackMachine
 {
-    internal class Bag
+    public class Bag
     {
     }
 }

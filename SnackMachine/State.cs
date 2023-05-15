@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SnackMachine.ColdDrinks;
+using SnackMachine.HotDrink;
+using SnackMachine.Snacks;
 
 namespace SnackMachine
 {
-    public class State : IButtons
+    public class State 
     {
         public Machine PlayMachine()
         {
@@ -14,17 +17,17 @@ namespace SnackMachine
         }
         public Snack ClickSnackBtn()
         {
-            return new Snack();
+            return null;
         }
 
-        public HotDrink ClickHotDrinkBtn()
+        public HotDrinkDecorator ClickHotDrinkBtn()
         {
-            return new HotDrink();
+            return null;
         }
 
         public ColdDrink ClickColdDrinkBtn()
         {
-            return new ColdDrink();
+            return null;
         }
 
         public void ClickPaymentBtn()

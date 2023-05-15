@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SnackMachine.HotDrink
 {
-    public class HotDrink
+    public class HotDrinkDecorator
     {
     }
 }
