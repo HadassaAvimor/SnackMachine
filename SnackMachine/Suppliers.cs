@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace SnackMachine
 {
-    public class Suppliers: StockListeners
+    public abstract class Suppliers : StockListeners
     {
+        public string Name { get; set; }
+        public string Email { get; set; }
+
+        public abstract void AddProduct();
+        
     }
 }
