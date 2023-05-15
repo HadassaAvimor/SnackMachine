@@ -9,22 +9,20 @@ namespace SnackMachine
     public abstract class Product
     {
         public string Name { get; set; }
-        public float Price { get; set; }
-        public int Qty { get; set; }
+        public double Price { get; set; }
 
-        public Product(string name, float price, int qty)
+        public int Amount { get; set; }
+
+        public Product(string name, double price, int amount)
         {
             Name = name;
             Price = price;
-            Qty = qty;
+            Amount = amount;
         }
         public override string ToString()
         {
-            return $"name: {Name}, price: {Price}, quantity: {Qty}";
+            return $"name: {Name}, price: {Price}";
         }
-        public bool UpdateStock()
-        {
-            return false;
-        }
+       
     }
 }

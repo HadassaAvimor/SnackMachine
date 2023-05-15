@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace SnackMachine.ColdDrinks
 {
-    public class ColdDrink
+    public class ColdDrink : Product
     {
-        
+        public ColdDrink(string name, double price, int amount) : base(name, price, amount)
+        {
+        }
     }
 }

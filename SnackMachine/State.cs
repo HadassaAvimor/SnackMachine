@@ -11,10 +11,10 @@ namespace SnackMachine
 {
     public class State 
     {
-        public Machine PlayMachine()
-        {
-            return new Machine();
-        }
+        //public Machine PlayMachine()
+        //{
+        //    return new Machine();
+        //}
         public Snack ClickSnackBtn()
         {
             return null;
