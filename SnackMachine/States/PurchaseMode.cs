@@ -26,7 +26,7 @@ public class PurchaseMode : IState
         where T : Product
     {
         int x = 200;
-        Label title = form.Controls.Find("title", false).FirstOrDefault() as Label;
+        Label? title = form.Controls.Find("title", false).FirstOrDefault() as Label;
         title.Text = text;
 
         Button? coldDrinkBtn = form.Controls.Find("coldDrinkBtn", false).FirstOrDefault() as Button;
