@@ -11,12 +11,8 @@ namespace SnackMachine.States
 {
     public interface IState
     {
-        public void ClickSnackBtn();
+         void HandleButtons();
 
-        public HotDrinkDecorator ClickHotDrinkBtn();
-
-        public ColdDrink ClickColdDrinkBtn();
-
-        public void ClickPaymentBtn();
+         void HandleActions();
     }
 }

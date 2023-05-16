@@ -1,26 +1,14 @@
 ﻿using SnackMachine.ColdDrinks;
-using SnackMachine.HotDrink;
 using SnackMachine.Snacks;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.DataFormats;
 
 namespace SnackMachine.States;
 
 public class PurchaseMode : IState
 {
-    public Stock stock { get; }
-    public static Form form = Application.OpenForms["form"];
-    public PurchaseMode()
-    {
-        //injection
-       stock = new Stock();
-    }
+    public static Stock stock = new Stock();
+
+    public static Form form = Application.OpenForms["form1"];
+
 
     private void AddButtons<T>(string text, Dictionary<T, int> products)
         where T : Product
@@ -41,8 +29,15 @@ public class PurchaseMode : IState
         {
             Button btn = new Button();
             form.Controls.Add(btn);
-            btn.Text = item.Key.Name;
-            btn.Location = new Point(x += 75, 100);
+
+            btn.Width = 100;
+            btn.Text = $"{item.Key.Name} ₪{item.Key.Price}";
+            btn.Location = new Point(x += 105, 100);
+            btn.Name = item.Key.Name;
+            btn.Click += (sender, e) =>
+            {
+                Purchase(item.Key);
+            };
         }
     }
 
@@ -51,19 +46,88 @@ public class PurchaseMode : IState
         AddButtons("כל החטיפים מיוצרים מקמח שנטחן לאחר הפסח, במיוחד הבמבה", stock.snacks);
     }
 
-    public HotDrinkDecorator ClickHotDrinkBtn()
+
+    public void ClickHotDrinkBtn()
     {
         throw new NotImplementedException();
     }
 
-    public ColdDrink ClickColdDrinkBtn()
+    public void ClickColdDrinkBtn()
     {
-        throw new NotImplementedException();
+        AddButtons("Hello, Yoram;", stock.coldDrinks);
     }
 
-    public void ClickPaymentBtn()
+    public int GetAmount(Product product)
     {
-        throw new NotImplementedException();
+        int amount = 0;
+        string type = "";
+
+        if (product is Snack)
+        {
+            amount = stock.snacks[(Snack)product];
+            type += "Snack";
+        }
+        else if (product is ColdDrink)
+        {
+            amount = stock.coldDrinks[(ColdDrink)product];
+            type += "ColdDrink";
+        }
+        return amount;
+    }
+
+    public void Purchase(Product product)
+    {
+        Label? title = form.Controls.Find("title", false).FirstOrDefault() as Label;
+
+        if (GetAmount(product) > 0)
+        {
+            title.Text = $"₪{product.Price} :לתשלום";
+
+            CheckBox giftWrap = new CheckBox();
+            giftWrap.Text = "אריזת מתנה";
+            giftWrap.Location = new Point(200, 100);
+            form.Controls.Add(giftWrap);
+
+            CheckBox bag = new CheckBox();
+            bag.Text = "שקית";
+            bag.Location = new Point(400, 100);
+            form.Controls.Add(bag);
+
+
+            foreach (var item in stock.snacks)
+            {
+                Button? btn = form.Controls.Find(item.Key.Name, false).FirstOrDefault() as Button;
+                form.Controls.Remove(btn);
+            }
+            foreach (var item in stock.coldDrinks)
+            {
+                Button? btn = form.Controls.Find(item.Key.Name, false).FirstOrDefault() as Button;
+                form.Controls.Remove(btn);
+            }
+
+            Button button = new Button();
+            button.Text = "המשך לתשלום";
+            button.Location = new Point(300, 200);
+            button.Width = 150;
+            button.Click += (sender, e) =>
+            {
+                if (giftWrap.Checked)
+                {
+                    AddGiftWrap();
+                }
+                if (bag.Checked)
+                {
+                    AddBag();
+                }
+            };
+            form.Controls.Add(button);
+
+        }
+        else
+        {
+            title.Text = "מצטערים, מוצר זה אינו זמין כרגע";
+            // לדווח לספק!!!!!!!!!!!!!
+        }
     }
 
     public GiftWrap AddGiftWrap()

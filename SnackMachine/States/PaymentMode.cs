@@ -29,5 +29,15 @@ namespace SnackMachine.States
         {
             throw new NotImplementedException();
         }
+
+        void IState.ClickColdDrinkBtn()
+        {
+            throw new NotImplementedException();
+        }
+
+        void IState.ClickHotDrinkBtn()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

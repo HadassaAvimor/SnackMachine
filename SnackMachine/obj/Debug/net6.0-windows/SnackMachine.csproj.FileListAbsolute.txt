@@ -49,3 +49,20 @@ C:\Users\אבימור הדסה\Source\Repos\SnackMachine\SnackMachine\bin\Debug\
 C:\Users\אבימור הדסה\Source\Repos\SnackMachine\SnackMachine\bin\Debug\net6.0-windows\SnackMachine.pdb
 C:\Users\אבימור הדסה\Source\Repos\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.genruntimeconfig.cache
 C:\Users\אבימור הדסה\Source\Repos\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\ref\SnackMachine.dll
+H:\SnackMachine\SnackMachine\bin\Debug\net6.0-windows\SnackMachine.exe
+H:\SnackMachine\SnackMachine\bin\Debug\net6.0-windows\SnackMachine.deps.json
+H:\SnackMachine\SnackMachine\bin\Debug\net6.0-windows\SnackMachine.runtimeconfig.json
+H:\SnackMachine\SnackMachine\bin\Debug\net6.0-windows\SnackMachine.dll
+H:\SnackMachine\SnackMachine\bin\Debug\net6.0-windows\SnackMachine.pdb
+H:\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.csproj.AssemblyReference.cache
+H:\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.Form1.resources
+H:\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.csproj.GenerateResource.cache
+H:\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.GeneratedMSBuildEditorConfig.editorconfig
+H:\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.AssemblyInfoInputs.cache
+H:\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.AssemblyInfo.cs
+H:\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.csproj.CoreCompileInputs.cache
+H:\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.dll
+H:\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\refint\SnackMachine.dll
+H:\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.pdb
+H:\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.genruntimeconfig.cache
+H:\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\ref\SnackMachine.dll
