@@ -42,53 +42,15 @@ namespace SnackMachine
             //לבדוק את העסק הזה. סינגלטון אולי, לבדוק איך זה מסתדר עם סטייט
             PurchaseMode purchaseMode = new();
             purchaseMode.ClickSnackBtn();
-            //int x = 200;
-            //title.Text = "כל החטיפים מיוצרים מקמח שנטחן לאחר הפסח, במיוחד הבמבה";
-            //Controls.Remove(coldDrinkBtn);
-            //Controls.Remove(hotDrinkBtn);
-            //Controls.Remove(snackBtn);
-
-            //foreach (var item in snacks)
-            //{
-            //    Button btn = new Button();
-            //    Controls.Add(btn);
-            //    btn.Text = item.Key.Name;
-            //    btn.Location = new Point(x += 75, 100);
-            //}
+         
         }
 
-        //private void AddButtons(string text, Dictionary<Product, int> products)
-        //{
-        //    int x = 200;
-        //    title.Text = text;
-        //    Controls.Remove(coldDrinkBtn);
-        //    Controls.Remove(hotDrinkBtn);
-        //    Controls.Remove(snackBtn);
-
-        //    foreach (var item in products)
-        //    {
-        //        Button btn = new Button();
-        //        Controls.Add(btn);
-        //        btn.Text = item.Key.Name;
-        //        btn.Location = new Point(x += 75, 100);
-        //    }
-        //}
+        
 
         private void coldDrinkBtn_Click(object sender, EventArgs e)
         {
-            int x = 200;
-            title.Text = "";
-            Controls.Remove(coldDrinkBtn);
-            Controls.Remove(hotDrinkBtn);
-            Controls.Remove(snackBtn);
-
-            //foreach (var item in coldDrinks)
-            //{
-            //    Button btn = new Button();
-            //    Controls.Add(btn);
-            //    btn.Text = item.Key.Name;
-                //btn.Location = +
-            //}
+            PurchaseMode purchaseMode = new();
+            purchaseMode.ClickColdDrinkBtn();
         }
     }
 }

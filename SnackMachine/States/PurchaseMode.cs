@@ -8,39 +8,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.DataFormats;
 
 namespace SnackMachine.States;
 
 public class PurchaseMode : IState
 {
-
+    public Stock stock { get; }
+    public static Form form = Application.OpenForms["form"];
     public PurchaseMode()
     {
-        Stock stock = new Stock();
+        //injection
+       stock = new Stock();
     }
+
+    private void AddButtons<T>(string text, Dictionary<T, int> products)
+        where T : Product
+    {
+        int x = 200;
+        Label title = form.Controls.Find("title", false).FirstOrDefault() as Label;
+        title.Text = text;
+
+        Button? coldDrinkBtn = form.Controls.Find("coldDrinkBtn", false).FirstOrDefault() as Button;
+        Button? hotDrinkBtn = form.Controls.Find("hotDrinkBtn", false).FirstOrDefault() as Button;
+        Button? snackBtn = form.Controls.Find("snackBtn", false).FirstOrDefault() as Button;
+
+        form.Controls.Remove(coldDrinkBtn);
+        form.Controls.Remove(hotDrinkBtn);
+        form.Controls.Remove(snackBtn);
+
+        foreach (var item in products)
+        {
+            Button btn = new Button();
+            form.Controls.Add(btn);
+            btn.Text = item.Key.Name;
+            btn.Location = new Point(x += 75, 100);
+        }
+    }
+
     public void ClickSnackBtn()
     {
-        var form1 = Application.OpenForms["Form1"];
-        int x = 200;
-        Label? title = form1.Controls.Find("title", false).FirstOrDefault() as Label;
-        title.Text = "כל החטיפים מיוצרים מקמח שנטחן לאחר הפסח, במיוחד הבמבה";
-
-        Button? coldDrinkBtn = form1.Controls.Find("coldDrinkBtn", false).FirstOrDefault() as Button;
-        Button? hotDrinkBtn = form1.Controls.Find("hotDrinkBtn", false).FirstOrDefault() as Button;
-        Button? snackBtn = form1.Controls.Find("snackBtn", false).FirstOrDefault() as Button;
-
-        form1.Controls.Remove(coldDrinkBtn);
-        form1.Controls.Remove(hotDrinkBtn);
-        form1.Controls.Remove(snackBtn);
-
-        //var a = form1.GetType().GetProperty("snacks");
-        //foreach (var item in )
-        //{
-        //    Button btn = new Button();
-        //    form1.Controls.Add(btn);
-        //    btn.Text = item.Key.Name;
-        //    btn.Location = new Point(x += 75, 100);
-        //}
+        AddButtons("כל החטיפים מיוצרים מקמח שנטחן לאחר הפסח, במיוחד הבמבה", stock.snacks);
     }
 
     public HotDrinkDecorator ClickHotDrinkBtn()
