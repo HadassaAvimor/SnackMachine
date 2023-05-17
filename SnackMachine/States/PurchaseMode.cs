@@ -138,4 +138,14 @@ public class PurchaseMode : IState
     {
         return new Bag();
     }
+
+    public void HandleButtons()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void HandleActions()
+    {
+        throw new NotImplementedException();
+    }
 }

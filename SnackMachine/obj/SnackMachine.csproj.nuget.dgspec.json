@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "H:\\SnackMachine\\SnackMachine\\SnackMachine.csproj": {}
+    "C:\\Users\\אבימור הדסה\\Source\\Repos\\SnackMachinewww\\SnackMachine\\SnackMachine.csproj": {}
   },
   "projects": {
-    "H:\\SnackMachine\\SnackMachine\\SnackMachine.csproj": {
+    "C:\\Users\\אבימור הדסה\\Source\\Repos\\SnackMachinewww\\SnackMachine\\SnackMachine.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\SnackMachine\\SnackMachine\\SnackMachine.csproj",
+        "projectUniqueName": "C:\\Users\\אבימור הדסה\\Source\\Repos\\SnackMachinewww\\SnackMachine\\SnackMachine.csproj",
         "projectName": "SnackMachine",
-        "projectPath": "H:\\SnackMachine\\SnackMachine\\SnackMachine.csproj",
+        "projectPath": "C:\\Users\\אבימור הדסה\\Source\\Repos\\SnackMachinewww\\SnackMachine\\SnackMachine.csproj",
         "packagesPath": "C:\\Users\\אבימור הדסה\\.nuget\\packages\\",
-        "outputPath": "H:\\SnackMachine\\SnackMachine\\obj\\",
+        "outputPath": "C:\\Users\\אבימור הדסה\\Source\\Repos\\SnackMachinewww\\SnackMachine\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -61,7 +61,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SnackMachine.HotDrink
+namespace SnackMachine
 {
-    internal class HotMilkDecorator
+    internal class Coco
     {
     }
 }

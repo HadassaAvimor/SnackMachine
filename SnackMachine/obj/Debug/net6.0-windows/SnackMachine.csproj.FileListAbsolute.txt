@@ -66,3 +66,13 @@ H:\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\refint\SnackMachine.dll
 H:\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.pdb
 H:\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.genruntimeconfig.cache
 H:\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\ref\SnackMachine.dll
+C:\Users\אבימור הדסה\Source\Repos\SnackMachinewww\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.csproj.AssemblyReference.cache
+C:\Users\אבימור הדסה\Source\Repos\SnackMachinewww\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.Form1.resources
+C:\Users\אבימור הדסה\Source\Repos\SnackMachinewww\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.csproj.GenerateResource.cache
+C:\Users\אבימור הדסה\Source\Repos\SnackMachinewww\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\אבימור הדסה\Source\Repos\SnackMachinewww\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.AssemblyInfoInputs.cache
+C:\Users\אבימור הדסה\Source\Repos\SnackMachinewww\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.AssemblyInfo.cs
+C:\Users\אבימור הדסה\Source\Repos\SnackMachinewww\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.csproj.CoreCompileInputs.cache
+C:\Users\אבימור הדסה\Source\Repos\SnackMachinewww\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.dll
+C:\Users\אבימור הדסה\Source\Repos\SnackMachinewww\SnackMachine\obj\Debug\net6.0-windows\refint\SnackMachine.dll
+C:\Users\אבימור הדסה\Source\Repos\SnackMachinewww\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.pdb
