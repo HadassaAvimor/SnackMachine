@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SnackMachine
+namespace SnackMachine.Suppliers
 {
     internal class AlitSupplier : Supplier
     {
@@ -14,7 +14,7 @@ namespace SnackMachine
 
         public override void AddProductsToMachine(Machine machine, Product product, int amount)
         {
-            
+
         }
     }
 }

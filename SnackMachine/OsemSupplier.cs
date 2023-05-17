@@ -1,5 +1,6 @@
 ﻿using SnackMachine.ColdDrinks;
 using SnackMachine.Snacks;
+using SnackMachine.Suppliers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SnackMachine;
 
-    internal class OsemSupplier : Supplier
+internal class OsemSupplier : Supplier
     {
         public OsemSupplier(string name, string email, List<Product> products) : base(name, email, products)
         {

@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SnackMachine.ColdDrinks;
-using SnackMachine.HotDrink;
 
 namespace SnackMachine.States
 {

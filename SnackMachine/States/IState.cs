@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SnackMachine.ColdDrinks;
-using SnackMachine.HotDrink;
-using SnackMachine.Snacks;
-
-namespace SnackMachine.States
+﻿namespace SnackMachine.States
 {
     public interface IState
     {
-         void HandleButtons();
+        //void HandleButtons<T>(string text, Dictionary<T, int> products) where T : Product;
 
-         void HandleActions();
+        void HandleActions();
     }
 }

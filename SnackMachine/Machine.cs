@@ -1,5 +1,4 @@
 ﻿using SnackMachine.ColdDrinks;
-using SnackMachine.HotDrink;
 using SnackMachine.Snacks;
 using System;
 using System.Collections.Generic;
@@ -12,14 +11,15 @@ namespace SnackMachine
     public class Machine
     {
         public Dictionary<Snack, int> Snacks { get; set; }
-        //public List<HotDrinkDecorator> HotDrinks { get; set; }
         public Dictionary<ColdDrink, int> ColdDrinks { get; set; }
 
-        public Machine(Dictionary<Snack, int> snacks, /*List<HotDrinkDecorator> hotDrinks,*/ Dictionary<ColdDrink, int> coldDrinks)
+        public Dictionary<HotDrink, int> HotDrinks { get; set; }
+
+        public Machine(Dictionary<Snack, int> snacks, Dictionary<ColdDrink, int> coldDrinks, Dictionary<HotDrink, int> hotDrinks)
         {
-           Snacks = snacks;
-           //HotDrinks = hotDrinks;
-           ColdDrinks = coldDrinks;
+            Snacks = snacks;
+            ColdDrinks = coldDrinks;
+            HotDrinks = hotDrinks;
         }
     }
 }

@@ -10,67 +10,43 @@ public class PurchaseMode : IState
     public static Form form = Application.OpenForms["form1"];
 
 
-    private void AddButtons<T>(string text, Dictionary<T, int> products)
-        where T : Product
-    {
-        int x = 200;
-        Label? title = form.Controls.Find("title", false).FirstOrDefault() as Label;
-        title.Text = text;
-
-        Button? coldDrinkBtn = form.Controls.Find("coldDrinkBtn", false).FirstOrDefault() as Button;
-        Button? hotDrinkBtn = form.Controls.Find("hotDrinkBtn", false).FirstOrDefault() as Button;
-        Button? snackBtn = form.Controls.Find("snackBtn", false).FirstOrDefault() as Button;
-
-        form.Controls.Remove(coldDrinkBtn);
-        form.Controls.Remove(hotDrinkBtn);
-        form.Controls.Remove(snackBtn);
-
-        foreach (var item in products)
-        {
-            Button btn = new Button();
-            form.Controls.Add(btn);
-
-            btn.Width = 100;
-            btn.Text = $"{item.Key.Name} ₪{item.Key.Price}";
-            btn.Location = new Point(x += 105, 100);
-            btn.Name = item.Key.Name;
-            btn.Click += (sender, e) =>
-            {
-                Purchase(item.Key);
-            };
-        }
-    }
+     
 
     public void ClickSnackBtn()
     {
-        AddButtons("כל החטיפים מיוצרים מקמח שנטחן לאחר הפסח, במיוחד הבמבה", stock.snacks);
+        HandleButtons("כל החטיפים מיוצרים מקמח שנטחן לאחר הפסח, במיוחד הבמבה", stock.Snacks);
     }
 
 
     public void ClickHotDrinkBtn()
     {
-        throw new NotImplementedException();
+        HandleButtons("פיהוק הוא צעקה שקטה לקפה", stock.HotDrinks);
     }
 
     public void ClickColdDrinkBtn()
     {
-        AddButtons("Hello, Yoram;", stock.coldDrinks);
+        HandleButtons("Hello, Yoram;", stock.ColdDrinks);
     }
 
     public int GetAmount(Product product)
     {
         int amount = 0;
-        string type = "";
+        //string type = "";
 
         if (product is Snack)
         {
-            amount = stock.snacks[(Snack)product];
-            type += "Snack";
+            amount = stock.Snacks[(Snack)product];
+            //type += "Snack";
         }
         else if (product is ColdDrink)
         {
-            amount = stock.coldDrinks[(ColdDrink)product];
-            type += "ColdDrink";
+            amount = stock.ColdDrinks[(ColdDrink)product];
+            //type += "ColdDrink";
+        }
+        else if (product is HotDrink)
+        {
+            amount = stock.HotDrinks[(HotDrink)product];
+            //type += "ColdDrink";
         }
         return amount;
     }
@@ -94,12 +70,17 @@ public class PurchaseMode : IState
             form.Controls.Add(bag);
 
 
-            foreach (var item in stock.snacks)
+            foreach (var item in stock.Snacks)
             {
                 Button? btn = form.Controls.Find(item.Key.Name, false).FirstOrDefault() as Button;
                 form.Controls.Remove(btn);
             }
-            foreach (var item in stock.coldDrinks)
+            foreach (var item in stock.ColdDrinks)
+            {
+                Button? btn = form.Controls.Find(item.Key.Name, false).FirstOrDefault() as Button;
+                form.Controls.Remove(btn);
+            }
+            foreach (var item in stock.HotDrinks)
             {
                 Button? btn = form.Controls.Find(item.Key.Name, false).FirstOrDefault() as Button;
                 form.Controls.Remove(btn);
@@ -139,13 +120,41 @@ public class PurchaseMode : IState
         return new Bag();
     }
 
-    public void HandleButtons()
-    {
-        throw new NotImplementedException();
-    }
 
     public void HandleActions()
     {
         throw new NotImplementedException();
+    }
+
+    void HandleButtons<T>(string text, Dictionary<T, int> products)
+        where T : Product
+    {
+        int x = 200;
+        Label? title = form.Controls.Find("title", false).FirstOrDefault() as Label;
+        title.Text = text;
+
+        Button? coldDrinkBtn = form.Controls.Find("coldDrinkBtn", false).FirstOrDefault() as Button;
+        Button? hotDrinkBtn = form.Controls.Find("hotDrinkBtn", false).FirstOrDefault() as Button;
+        Button? snackBtn = form.Controls.Find("snackBtn", false).FirstOrDefault() as Button;
+
+        form.Controls.Remove(coldDrinkBtn);
+        form.Controls.Remove(hotDrinkBtn);
+        form.Controls.Remove(snackBtn);
+
+        foreach (var item in products)
+        {
+            Button btn = new Button();
+            form.Controls.Add(btn);
+
+            btn.Width = 150;
+            btn.Height = 30;
+            btn.Text = $"{item.Key.Name} ₪{item.Key.Price}";
+            btn.Location = new Point(x += 100, 200);
+            btn.Name = item.Key.Name;
+            btn.Click += (sender, e) =>
+            {
+                Purchase(item.Key);
+            };
+        }
     }
 }

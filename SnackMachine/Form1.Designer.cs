@@ -28,80 +28,76 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.title = new System.Windows.Forms.Label();
-            this.snackBtn = new System.Windows.Forms.Button();
-            this.coldDrinkBtn = new System.Windows.Forms.Button();
-            this.hotDrinkBtn = new System.Windows.Forms.Button();
-            this.slogen = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            title = new Label();
+            snackBtn = new Button();
+            coldDrinkBtn = new Button();
+            hotDrinkBtn = new Button();
+            slogen = new Label();
+            SuspendLayout();
             // 
             // title
             // 
-            this.title.AutoSize = true;
-            this.title.BackColor = System.Drawing.SystemColors.Control;
-            this.title.Location = new System.Drawing.Point(326, 58);
-            this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(88, 15);
-            this.title.TabIndex = 0;
-            this.title.Text = "?מה בא לך היום";
+            title.AutoSize = true;
+            title.BackColor = SystemColors.Control;
+            title.Location = new Point(373, 77);
+            title.Name = "title";
+            title.Size = new Size(111, 20);
+            title.TabIndex = 0;
+            title.Text = "?מה בא לך היום";
             // 
             // snackBtn
             // 
-            this.snackBtn.Location = new System.Drawing.Point(459, 120);
-            this.snackBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.snackBtn.Name = "snackBtn";
-            this.snackBtn.Size = new System.Drawing.Size(133, 22);
-            this.snackBtn.TabIndex = 1;
-            this.snackBtn.Text = "חטיפים";
-            this.snackBtn.UseVisualStyleBackColor = true;
-            this.snackBtn.Click += new System.EventHandler(this.snackBtn_Click_1);
+            snackBtn.Location = new Point(525, 160);
+            snackBtn.Name = "snackBtn";
+            snackBtn.Size = new Size(152, 29);
+            snackBtn.TabIndex = 1;
+            snackBtn.Text = "חטיפים";
+            snackBtn.UseVisualStyleBackColor = true;
+            snackBtn.Click += snackBtn_Click_1;
             // 
             // coldDrinkBtn
             // 
-            this.coldDrinkBtn.Location = new System.Drawing.Point(284, 120);
-            this.coldDrinkBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.coldDrinkBtn.Name = "coldDrinkBtn";
-            this.coldDrinkBtn.Size = new System.Drawing.Size(139, 22);
-            this.coldDrinkBtn.TabIndex = 2;
-            this.coldDrinkBtn.Text = "שתיה קרה מרעננת";
-            this.coldDrinkBtn.UseVisualStyleBackColor = true;
-            this.coldDrinkBtn.Click += new System.EventHandler(this.coldDrinkBtn_Click);
+            coldDrinkBtn.Location = new Point(325, 160);
+            coldDrinkBtn.Name = "coldDrinkBtn";
+            coldDrinkBtn.Size = new Size(159, 29);
+            coldDrinkBtn.TabIndex = 2;
+            coldDrinkBtn.Text = "שתיה קרה מרעננת";
+            coldDrinkBtn.UseVisualStyleBackColor = true;
+            coldDrinkBtn.Click += coldDrinkBtn_Click;
             // 
             // hotDrinkBtn
             // 
-            this.hotDrinkBtn.Location = new System.Drawing.Point(121, 120);
-            this.hotDrinkBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.hotDrinkBtn.Name = "hotDrinkBtn";
-            this.hotDrinkBtn.Size = new System.Drawing.Size(133, 22);
-            this.hotDrinkBtn.TabIndex = 3;
-            this.hotDrinkBtn.Text = "שתיה חמה לנפש";
-            this.hotDrinkBtn.UseVisualStyleBackColor = true;
+            hotDrinkBtn.Location = new Point(138, 160);
+            hotDrinkBtn.Name = "hotDrinkBtn";
+            hotDrinkBtn.Size = new Size(152, 29);
+            hotDrinkBtn.TabIndex = 3;
+            hotDrinkBtn.Text = "שתיה חמה לנפש";
+            hotDrinkBtn.UseVisualStyleBackColor = true;
+            hotDrinkBtn.Click += hotDrinkBtn_Click;
             // 
             // slogen
             // 
-            this.slogen.AutoSize = true;
-            this.slogen.Location = new System.Drawing.Point(304, 280);
-            this.slogen.Name = "slogen";
-            this.slogen.Size = new System.Drawing.Size(131, 15);
-            this.slogen.TabIndex = 4;
-            this.slogen.Text = "אכול ושתה כי מחר נמות";
+            slogen.AutoSize = true;
+            slogen.Location = new Point(347, 373);
+            slogen.Name = "slogen";
+            slogen.Size = new Size(163, 20);
+            slogen.TabIndex = 4;
+            slogen.Text = "אכול ושתה כי מחר נמות";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 338);
-            this.Controls.Add(this.slogen);
-            this.Controls.Add(this.hotDrinkBtn);
-            this.Controls.Add(this.coldDrinkBtn);
-            this.Controls.Add(this.snackBtn);
-            this.Controls.Add(this.title);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 451);
+            Controls.Add(slogen);
+            Controls.Add(hotDrinkBtn);
+            Controls.Add(coldDrinkBtn);
+            Controls.Add(snackBtn);
+            Controls.Add(title);
+            Name = "Form1";
+            Text = "Form1";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

@@ -24,6 +24,10 @@ namespace SnackMachine
             purchaseMode.ClickColdDrinkBtn();
         }
 
-
+        private void hotDrinkBtn_Click(object sender, EventArgs e)
+        {
+            PurchaseMode purchaseMode = new();
+            purchaseMode.ClickHotDrinkBtn();
+        }
     }
 }

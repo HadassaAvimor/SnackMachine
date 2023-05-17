@@ -1,5 +1,4 @@
 ﻿using SnackMachine.ColdDrinks;
-using SnackMachine.HotDrink;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,14 +29,11 @@ namespace SnackMachine.States
             throw new NotImplementedException();
         }
 
-        void IState.ClickColdDrinkBtn()
+        public void HandleActions()
         {
             throw new NotImplementedException();
         }
 
-        void IState.ClickHotDrinkBtn()
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }
