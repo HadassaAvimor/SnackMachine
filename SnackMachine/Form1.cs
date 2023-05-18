@@ -4,7 +4,7 @@ using SnackMachine.States;
 
 namespace SnackMachine
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form//njhu
     {
         public IState initialState { get; set; }
         public Context context { get; set; }
