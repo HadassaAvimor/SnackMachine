@@ -4,6 +4,6 @@
     {
         //void HandleButtons<T>(string text, Dictionary<T, int> products) where T : Product;
 
-        void HandleActions();
+        void Handle(Context context);
     }
 }

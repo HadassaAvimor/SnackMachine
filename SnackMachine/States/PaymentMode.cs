@@ -9,6 +9,12 @@ namespace SnackMachine.States
 {
     public class PaymentMode : IState
     {
+        public void Handle(Context context)
+        {
+            MessageBox.Show("payment mode");
+
+            context.State = new PaymentMode(); // Transition to the next state
+        }
         public ColdDrink ClickColdDrinkBtn()
         {
             throw new NotImplementedException();

@@ -9,8 +9,12 @@ public class PurchaseMode : IState
 
     public static Form form = Application.OpenForms["form1"];
 
+    public void Handle(Context context)
+    {
+        
+        context.State = new PaymentMode(); // Transition to the next state
+    }
 
-     
 
     public void ClickSnackBtn()
     {
@@ -126,7 +130,7 @@ public class PurchaseMode : IState
         throw new NotImplementedException();
     }
 
-    void HandleButtons<T>(string text, Dictionary<T, int> products)
+    public static void HandleButtons<T>(string text, Dictionary<T, int> products)
         where T : Product
     {
         int x = 200;
@@ -153,7 +157,7 @@ public class PurchaseMode : IState
             btn.Name = item.Key.Name;
             btn.Click += (sender, e) =>
             {
-                Purchase(item.Key);
+                //Purchase(item.Key);
             };
         }
     }
