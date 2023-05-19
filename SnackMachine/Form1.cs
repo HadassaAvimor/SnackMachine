@@ -21,9 +21,10 @@ namespace SnackMachine
 
         private void snackBtn_Click_1(object sender, EventArgs e)
         {
+            //context.Request();
+           
             context.Request();
-            PurchaseMode.HandleButtons("כל החטיפים מיוצרים מקמח שנטחן לאחר הפסח, במיוחד הבמבה", PurchaseMode.stock.Snacks);
-            context.Request();
+            //PurchaseMode.HandleButtons("כל החטיפים מיוצרים מקמח שנטחן לאחר הפסח, במיוחד הבמבה", PurchaseMode.stock.Snacks);
 
             //PurchaseMode purchaseMode = new();
             //purchaseMode.ClickSnackBtn();
