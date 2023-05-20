@@ -10,11 +10,15 @@ namespace SnackMachine.Suppliers
     {
         public string Name { get; set; }
         public string Email { get; set; }
-        public List<Product> Products { get; set; }
+        public Dictionary<Product, List<Product>> Products { get; set; }
 
-        public void AddProduct(Product product)
+        public void AddProduct(Product product, int amount)
         {
-            Products.Add(product);
+            List<Product> products = new List<Product>();
+            for(int i = 0; i < amount; i++)
+            {
+                products.Add(new Product(product.Name, product.Price));
+            }
         }
         public abstract void AddProductsToMachine(Machine machine, Product product, int amount);
 

@@ -11,13 +11,11 @@ namespace SnackMachine
         public string Name { get; set; }
         public double Price { get; set; }
 
-        public int Amount { get; set; }
 
-        public Product(string name, double price, int amount)
+        public Product(string name, double price)
         {
             Name = name;
             Price = price;
-            Amount = amount;
         }
         public override string ToString()
         {

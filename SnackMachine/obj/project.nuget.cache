@@ -1,8 +1,54 @@
 {
   "version": 2,
-  "dgSpecHash": "Wgxu3vR9/jPb82X01NdA4NK7JM/9DRIN1L//D2HuZVkI5SN4tEjHJeHy1+GC1iBHVUpnS8JQNGj+jywwxylIzg==",
+  "dgSpecHash": "xNj85YQnsgpR2sgTeFrlQRCcGoPlMm0ebD6t0NhrlMnJ+iOOPi68cXQjPFO5VDKaqVPOonGD8jSskIclE5AzgQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\source\\repos\\SnackMachine\\SnackMachine\\SnackMachine.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "projectFilePath": "C:\\Users\\הדסה אבימור\\Source\\Repos\\SnackMachinee\\SnackMachine\\SnackMachine.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\הדסה אבימור\\.nuget\\packages\\automapper\\4.1.1\\automapper.4.1.1.nupkg.sha512",
+    "C:\\Users\\הדסה אבימור\\.nuget\\packages\\protobuf-net\\2.0.0.668\\protobuf-net.2.0.0.668.nupkg.sha512",
+    "C:\\Users\\הדסה אבימור\\.nuget\\packages\\servicestack.text\\3.9.38\\servicestack.text.3.9.38.nupkg.sha512",
+    "C:\\Users\\הדסה אבימור\\.nuget\\packages\\unipluss.sign.client\\1.0.2876\\unipluss.sign.client.1.0.2876.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'AutoMapper 4.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "AutoMapper",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'protobuf-net 2.0.0.668' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "protobuf-net",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'ServiceStack.Text 3.9.38' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "ServiceStack.Text",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Unipluss.Sign.Client 1.0.2876' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Unipluss.Sign.Client",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    }
+  ]
 }

@@ -7,10 +7,17 @@ namespace SnackMachine;
 public class Stock
 {
     //מילון עם שם המוצר כאילו הסוג ורשימת מוצרים
-    public Dictionary<Snack, int> Snacks { get ; }
-    public Dictionary<ColdDrink, int> ColdDrinks { get; }
+    //public Dictionary<Snack, int> Snacks { get ; }
+    //public Dictionary<ColdDrink, int> ColdDrinks { get; }
 
-    public Dictionary<HotDrink, int> HotDrinks { get; }
+    //public Dictionary<HotDrink, int> HotDrinks { get; }
+
+    public Dictionary<Product, List<Product>> Snacks { get ; }
+    public Dictionary<Product, List<Product>> ColdDrinks { get; }
+    public Dictionary<Product, List<Product>> HotDrinks { get; }
+
+
+
     //פונקציה שמקבלת סטרינג או אינם ומחזירה את המוצר
     //תעדכן את הספקים
     public Stock()
@@ -29,15 +36,15 @@ public class Stock
             {
                 if (p is Snack)
                 {
-                    Snacks.Add(new Snack(p.Name, p.Price, p.Amount), p.Amount);
+                    Snacks.Add(new Snack(p.Name, p.Price), new List<Snack>() { new Snack("ביסלי", 4.90, 6), new Snack("ביסלי", 4.90, 6) });
                 }
                 else if (p is ColdDrink)
                 {
-                    ColdDrinks.Add(new ColdDrink(p.Name, p.Price, p.Amount), p.Amount);
+                    ColdDrinks.Add(new ColdDrink(p.Name, p.Price), );
                 }
                 else if (p is HotDrink)
                 {
-                    HotDrinks.Add(new HotDrink(p.Name, p.Price, p.Amount), p.Amount);
+                    HotDrinks.Add(new HotDrink(p.Name, p.Price), );
                 }
             });
         }

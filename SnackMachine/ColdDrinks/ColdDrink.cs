@@ -8,7 +8,7 @@ namespace SnackMachine.ColdDrinks
 {
     public class ColdDrink : Product
     {
-        public ColdDrink(string name, double price, int amount) : base(name, price, amount)
+        public ColdDrink(string name, double price) : base(name, price)
         {
         }
     }
