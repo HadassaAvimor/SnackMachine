@@ -6,11 +6,13 @@ namespace SnackMachine;
 
 public class Stock
 {
+    //מילון עם שם המוצר כאילו הסוג ורשימת מוצרים
     public Dictionary<Snack, int> Snacks { get ; }
     public Dictionary<ColdDrink, int> ColdDrinks { get; }
 
     public Dictionary<HotDrink, int> HotDrinks { get; }
-
+    //פונקציה שמקבלת סטרינג או אינם ומחזירה את המוצר
+    //תעדכן את הספקים
     public Stock()
     {
         Snacks = new();
@@ -39,6 +41,6 @@ public class Stock
                 }
             });
         }
-        Machine machine = new (Snacks, ColdDrinks, HotDrinks);
+        //Machine machine = new (Snacks, ColdDrinks, HotDrinks);
     }
 }

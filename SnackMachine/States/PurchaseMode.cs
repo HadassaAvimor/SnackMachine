@@ -5,31 +5,58 @@ namespace SnackMachine.States;
 
 public class PurchaseMode : IState
 {
-    public static Stock stock = new Stock();
-
     public static Form form = Application.OpenForms["form1"];
 
-    public void Handle(Context context)
+    public Context context { get; set; }
+
+    public PurchaseMode()
     {
-        
-        context.State = new PaymentMode(); // Transition to the next state
+        context = new Context(this);
     }
+    public void ActionsHandler()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void ButtonsHandler()
+    {
+        HandleButtons("כל החטיפים מיוצרים מקמח שנטחן לאחר הפסח, במיוחד הבמבה", context.Stock.Snacks);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 
     public void ClickSnackBtn()
     {
-        HandleButtons("כל החטיפים מיוצרים מקמח שנטחן לאחר הפסח, במיוחד הבמבה", stock.Snacks);
+        //HandleButtons("כל החטיפים מיוצרים מקמח שנטחן לאחר הפסח, במיוחד הבמבה", stock.Snacks);
     }
 
 
     public void ClickHotDrinkBtn()
     {
-        HandleButtons("פיהוק הוא צעקה שקטה לקפה", stock.HotDrinks);
+        //HandleButtons("פיהוק הוא צעקה שקטה לקפה", stock.HotDrinks);
     }
 
     public void ClickColdDrinkBtn()
     {
-        HandleButtons("Hello, Yoram;", stock.ColdDrinks);
+        //HandleButtons("Hello, Yoram;", stock.ColdDrinks);
     }
 
     public int GetAmount(Product product)
@@ -39,17 +66,17 @@ public class PurchaseMode : IState
 
         if (product is Snack)
         {
-            amount = stock.Snacks[(Snack)product];
+            //amount = stock.Snacks[(Snack)product];
             //type += "Snack";
         }
         else if (product is ColdDrink)
         {
-            amount = stock.ColdDrinks[(ColdDrink)product];
+            //amount = stock.ColdDrinks[(ColdDrink)product];
             //type += "ColdDrink";
         }
         else if (product is HotDrink)
         {
-            amount = stock.HotDrinks[(HotDrink)product];
+            //amount = stock.HotDrinks[(HotDrink)product];
             //type += "ColdDrink";
         }
         return amount;
@@ -57,62 +84,7 @@ public class PurchaseMode : IState
 
     public void Purchase(Product product)
     {
-        Label? title = form.Controls.Find("title", false).FirstOrDefault() as Label;
 
-        if (GetAmount(product) > 0)
-        {
-            title.Text = $"₪{product.Price} :לתשלום";
-
-            CheckBox giftWrap = new CheckBox();
-            giftWrap.Text = "אריזת מתנה";
-            giftWrap.Location = new Point(200, 100);
-            form.Controls.Add(giftWrap);
-
-            CheckBox bag = new CheckBox();
-            bag.Text = "שקית";
-            bag.Location = new Point(400, 100);
-            form.Controls.Add(bag);
-
-
-            foreach (var item in stock.Snacks)
-            {
-                Button? btn = form.Controls.Find(item.Key.Name, false).FirstOrDefault() as Button;
-                form.Controls.Remove(btn);
-            }
-            foreach (var item in stock.ColdDrinks)
-            {
-                Button? btn = form.Controls.Find(item.Key.Name, false).FirstOrDefault() as Button;
-                form.Controls.Remove(btn);
-            }
-            foreach (var item in stock.HotDrinks)
-            {
-                Button? btn = form.Controls.Find(item.Key.Name, false).FirstOrDefault() as Button;
-                form.Controls.Remove(btn);
-            }
-
-            Button button = new Button();
-            button.Text = "המשך לתשלום";
-            button.Location = new Point(300, 200);
-            button.Width = 150;
-            button.Click += (sender, e) =>
-            {
-                if (giftWrap.Checked)
-                {
-                    AddGiftWrap();
-                }
-                if (bag.Checked)
-                {
-                    AddBag();
-                }
-            };
-            form.Controls.Add(button);
-
-        }
-        else
-        {
-            title.Text = "מצטערים, מוצר זה אינו זמין כרגע";
-            // לדווח לספק!!!!!!!!!!!!!
-        }
     }
 
     public GiftWrap AddGiftWrap()
@@ -161,4 +133,6 @@ public class PurchaseMode : IState
             };
         }
     }
+
+    
 }

@@ -6,17 +6,22 @@ using System.Threading.Tasks;
 
 namespace SnackMachine.States
 {
-    public class Context
+    public class Context //manager
     {
-        public IState State { get; set; }
+        public IState? State { get; set; }
+        public Stock Stock { get; set; }
+        public ProductType CurrentProduct { get; set; }//enum
+
         public Context(IState initialState)
         {
-            State = initialState;    
+            State = initialState;
+            Stock = new Stock();
+        }
+        public void ChangeMode(IState state)
+        {
+            State = state;
         }
 
-        public void Request()
-        {
-            State.Handle(this);
-        }
+        
     }
 }

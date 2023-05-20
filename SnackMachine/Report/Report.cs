@@ -8,6 +8,8 @@ namespace SnackMachine.Report;
 
 internal abstract class ReportBuilder
 {
+    string PATH;
+    DateTime todaysDate;
     protected string report;
     public abstract void AddEntry(string actionDescription);
     public abstract string GetReport();
