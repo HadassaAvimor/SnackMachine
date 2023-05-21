@@ -5,47 +5,72 @@ using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SnackMachine.States
+namespace SnackMachine.States;
+
+public class InitialMode : IState
 {
-    public class InitialMode : IState
+    public static Form form = Application.OpenForms["form1"];
+    public Context Context { get; set; }
+    public Button BackBtn { get; set; }
+
+    public InitialMode(Context context)
     {
-        public static Form form = Application.OpenForms["form1"];
-        public Context context { get; set; }
-        public Button BackBtn { get; set; }
+        Context = context;
+    }
+    public void ActionsHandler()
+    {
+        throw new NotImplementedException();
+    }
 
-        public InitialMode()
+    public void ButtonsHandler()
+    {
+        form.Controls.Clear();
+
+        Label title = new Label();
+        title.Text = "?מה בא לך היום";
+        title.Location = new Point(500, 50);
+        form.Controls.Add(title);
+
+        Button snackBtn = new Button();
+        form.Controls.Add(snackBtn);
+        snackBtn.Width = 150;
+        snackBtn.Height = 30;
+        snackBtn.Text = "חטיפים";
+        snackBtn.Location = new Point(100, 100);
+        snackBtn.Name = "snackBtn";
+        snackBtn.Click += (sender, e) =>
         {
-            context = new Context(this);
-        }
-        public void ActionsHandler()
+            SnackPurchaseMode snackPurchaseMode = new SnackPurchaseMode(Context);
+            Context.ChangeMode(snackPurchaseMode);
+            Context.State.ButtonsHandler();
+        };
+
+        Button coldDrindBtn = new Button();
+        form.Controls.Add(coldDrindBtn);
+        coldDrindBtn.Width = 150;
+        coldDrindBtn.Height = 30;
+        coldDrindBtn.Text = "שתיה קרה";
+        coldDrindBtn.Location = new Point(300, 100);
+        coldDrindBtn.Name = "coldDrindBtn";
+        coldDrindBtn.Click += (sender, e) =>
         {
-            throw new NotImplementedException();
-        }
+            ColdDrinkPurchaseMode coldDrinkPurchaseMode = new ColdDrinkPurchaseMode(Context);   
+            Context.ChangeMode(coldDrinkPurchaseMode);
+            Context.State.ButtonsHandler();
+        };
 
-        public void ButtonsHandler(Product product)
+        Button hotDrinkBtn = new Button();
+        form.Controls.Add(hotDrinkBtn);
+        hotDrinkBtn.Width = 150;
+        hotDrinkBtn.Height = 30;
+        hotDrinkBtn.Text = "שתיה חמה";
+        hotDrinkBtn.Location = new Point(500, 100);
+        hotDrinkBtn.Name = "hotDrinkBtn";
+        hotDrinkBtn.Click += (sender, e) =>
         {
-            Label? title = form.Controls.Find("title", false).FirstOrDefault() as Label;
-            title.Text = "?מה בא לך היום";
-
-            form.Controls.Clear();
-
-            //ליצור מחדש כפתורים, לנקות מסך
-            Button snackBtn = new Button();
-            form.Controls.Add(snackBtn);
-
-
-
-            snackBtn.Width = 150;
-            snackBtn.Height = 30;
-            snackBtn.Text = "חטיפים";
-            snackBtn.Location = new Point(200, 200);
-            snackBtn.Name = "snackBtn";
-            snackBtn.Click += (sender, e) =>
-            {
-                SnackPurchaseMode snackPurchaseMode = new SnackPurchaseMode();
-                context.ChangeMode(snackPurchaseMode);
-                context.State.ButtonsHandler(product);
-            };
-            }
+            HotDrinkPurchaseMode hotDrinkPurchaseMode = new HotDrinkPurchaseMode(Context);
+            Context.ChangeMode(hotDrinkPurchaseMode);
+            Context.State.ButtonsHandler();
+        };
     }
 }

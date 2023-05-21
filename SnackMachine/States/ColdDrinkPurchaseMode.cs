@@ -13,50 +13,65 @@ namespace SnackMachine.States
     public class ColdDrinkPurchaseMode : IState
     {
         public static Form form = Application.OpenForms["form1"];
-        public Context context { get; set; }
+        public Context Context { get; set; }
 
-        public ColdDrinkPurchaseMode()
+        public ColdDrinkPurchaseMode(Context context)
         {
-            context = new Context(this);
+            Context = context;
         }
         public void ActionsHandler()
         {
             throw new NotImplementedException();
         }
 
-        public void ButtonsHandler(Product product)
+        public void ButtonsHandler()
         {
+            //form.Controls.Clear();
             int x = 200;
-            Label? title = form.Controls.Find("title", false).FirstOrDefault() as Label;
-            title.Text = "טוב למות בעד ארצינו";
 
-            Button? coldDrinkBtn = form.Controls.Find("coldDrinkBtn", false).FirstOrDefault() as Button;
-            Button? hotDrinkBtn = form.Controls.Find("hotDrinkBtn", false).FirstOrDefault() as Button;
-            Button? snackBtn = form.Controls.Find("snackBtn", false).FirstOrDefault() as Button;
+            form.Controls.Clear();
 
-            form.Controls.Remove(coldDrinkBtn);
-            form.Controls.Remove(hotDrinkBtn);
-            form.Controls.Remove(snackBtn);
+            Button back = new Button();
+            back.Location = new Point(300, 20);
+            back.Text = "למסך הקודם";
+            back.Width = 200;
+            form.Controls.Add(back);
+            back.Click +=
+                (sender, e) => {
+                    InitialMode initialMode = new(Context);
+                    Context.ChangeMode(initialMode);
+                    Context.State.ButtonsHandler();
+                };
 
-            foreach (var item in context.Stock.ColdDrinks)
+            foreach (var item in Context.Stock.ColdDrinks)
             {
                 Button btn = new Button();
                 form.Controls.Add(btn);
 
-                string name = item.Key.Name;
 
-                btn.Width = 150;
-                btn.Height = 30;
-                btn.Text = $"{name} ₪{item.Key.Price}";
-                btn.Location = new Point(x += 100, 200);
-                btn.Name = item.Key.Name;
-                btn.Click += (sender, e) =>
+                string name = item.Key;
+                double price = 0;
+                if (Context.Stock.ColdDrinks[name].Count > 0)
                 {
-                    Product product = context.Stock.GetProduct(name);
-                    PaymentMode paymentMode = new PaymentMode();
-                    context.ChangeMode(paymentMode);
-                    context.State.ButtonsHandler(product);
-                };
+                    price = Context.Stock.ColdDrinks[name][0].Price;
+                    btn.Width = 150;
+                    btn.Height = 30;
+                    btn.Text = $"{name} ₪{price}";
+                    btn.Location = new Point(x += 100, 200);
+                    btn.Name = item.Key;
+                    btn.Click += (sender, e) =>
+                    {
+                        Product product = Context.Stock.GetColdDrinksProduct(name);
+                        Context.CurrentProduct = product;
+                        PaymentMode paymentMode = new PaymentMode(Context);
+                        Context.ChangeMode(paymentMode);
+                        Context.State.ButtonsHandler();
+                    };
+                }
+                else
+                {
+                    ///חסר מהמוצר
+                }
             }
         }
 

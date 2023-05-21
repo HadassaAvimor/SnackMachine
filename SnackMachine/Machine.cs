@@ -7,38 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SnackMachine
+namespace SnackMachine;
+
+public class Machine
 {
-    public class Machine
+    public IState State { get; set; }
+    public InitialMode InitialMode { get; set; }
+    public SnackPurchaseMode SnackPurchaseMode { get; set; }
+    public ColdDrinkPurchaseMode ColdDrinkPurchaseMode { get; set; }
+    public HotDrinkPurchaseMode HotDrinkPurchaseMode { get; set; }
+    public PaymentMode PaymentMode { get; set; }
+    public Context Context { get; set; }
+    public Stock Stock { get; set; }
+
+    public Machine(Stock stock)
     {
-        public IState State { get; set; }
-        public InitialMode InitialMode { get; set; } = new InitialMode();
-        public PurchaseMode PurchaseMode { get; set; } = new PurchaseMode();
-        public SnackPurchaseMode SnackPurchaseMode { get; set; } = new SnackPurchaseMode();
-        public ColdDrinkPurchaseMode ColdDrinkPurchaseMode { get; set; } = new ColdDrinkPurchaseMode();
-        public HotDrinkPurchaseMode HotDrinkPurchaseMode { get; set; } = new HotDrinkPurchaseMode();
-        public PaymentMode PaymentMode { get; set; } = new PaymentMode();
-        public AdminMode AdminMode { get; set; } = new AdminMode();
-        public Context Context { get; set; }
-        public Stock Stock { get; set; }
+        Context = new Context(InitialMode, stock);
+        SnackPurchaseMode = new SnackPurchaseMode(Context);
+        ColdDrinkPurchaseMode = new ColdDrinkPurchaseMode(Context);
+        PaymentMode = new PaymentMode(Context);
+        HotDrinkPurchaseMode = new HotDrinkPurchaseMode(Context);
+        InitialMode = new InitialMode(Context);
+        Stock = stock;
 
-        public Machine(Stock stock)
-        {
-            Context = new Context(State);
-            Stock = stock;
-        }
-
-        //אמור להימחק. רק בשביל ההרצה של הבילדר
-        public Dictionary<Snack, int> Snacks { get; set; }
-        public Dictionary<ColdDrink, int> ColdDrinks { get; set; }
-
-        public Dictionary<HotDrink, int> HotDrinks { get; set; }
-
-        public Machine(Dictionary<Snack, int> snacks, Dictionary<ColdDrink, int> coldDrinks, Dictionary<HotDrink, int> hotDrinks)
-        {
-            Snacks = snacks;
-            ColdDrinks = coldDrinks;
-            HotDrinks = hotDrinks;
-        }
     }
 }

@@ -26,8 +26,8 @@ internal class TxtReportBuilder : ReportBuilder
     public override string GetReport()
     {
         string createText = "Hello and Welcome" + Environment.NewLine;
-        File.WriteAllText(PATH, createText);
-        // האם צריך לכתוב באמת לקובץ טקסט?
+        File.WriteAllText(PATH, report);
+        
         return report;
     }
 }

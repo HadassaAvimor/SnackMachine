@@ -2,46 +2,51 @@
 {
     public class PaymentMode : IState
     {
+        double money;
         public static Form form = Application.OpenForms["form1"];
-        public Context context { get; set; }
+        public Context Context { get; set; }
 
-        public PaymentMode()
+        public PaymentMode(Context context)
         {
-            context = new Context(this);
+            Context = context;
         }
         public void ActionsHandler()
         {
-            throw new NotImplementedException();
+            Label moneyDetails = new Label();
+            form.Controls.Add(moneyDetails);
+            moneyDetails.Location = new Point(350, 400);
+
+            if (money < Context.CurrentProduct.Price)
+            {
+                moneyDetails.Text = $" ₪{Context.CurrentProduct.Price - money} חסר לך ";
+            }
+            else if(money > Context.CurrentProduct.Price)
+            {
+                MessageBox.Show($"{money - Context.CurrentProduct.Price} :עודף ,{Context.CurrentProduct.ToString()} קנית");
+            }
+
+            
         }
 
-        public void ButtonsHandler(Product product)
+        public void ButtonsHandler()
         {
+            form.Controls.Clear();
             int x = 200;
-            Label? title = form.Controls.Find("title", false).FirstOrDefault() as Label;
-            title.Text = "לפום צערא אגרא";
 
+            Button back = new Button();
+            back.Location = new Point(800, 20);
+            form.Controls.Add(back);
+            back.Click +=
+                (sender, e) => {
+                    InitialMode initialMode = new(Context);
+                    Context.ChangeMode(initialMode);
+                    Context.State.ButtonsHandler();
 
-            foreach (var item in context.Stock.Snacks)
-            {
-                Button? btn = form.Controls.Find($"{item.Key.Name}", false).FirstOrDefault() as Button;
-                form.Controls.Remove(btn);
-            }
-
-            foreach (var item in context.Stock.ColdDrinks)
-            {
-                Button? btn = form.Controls.Find($"{item.Key.Name}", false).FirstOrDefault() as Button;
-                form.Controls.Remove(btn);
-            }
-
-            foreach (var item in context.Stock.HotDrinks)
-            {
-                Button? btn = form.Controls.Find($"{item.Key.Name}", false).FirstOrDefault() as Button;
-                form.Controls.Remove(btn);
-            }
+                };
 
             Label label = new Label();
             form.Controls.Add(label);
-            label.Text = $" ₪{product.Price} :לתשלום";
+            label.Text = $" ₪{Context.CurrentProduct.Price} :לתשלום";
             label.Location = new Point(300, 100);
 
             CheckBox bag = new CheckBox();
@@ -60,9 +65,9 @@
             enterMoney.Text = "הכנס כסף";
             enterMoney.Location = new Point(300, 200);
 
-            TextBox textBox = new TextBox();
-            form.Controls.Add(textBox);
-            textBox.Location = new Point(300, 250);
+            NumericUpDown numericUpDown = new NumericUpDown();
+            form.Controls.Add(numericUpDown);
+            numericUpDown.Location = new Point(300, 250);
 
             Button toPayment = new Button();
             form.Controls.Add(toPayment);
@@ -70,13 +75,19 @@
             toPayment.Location = new Point(300, 330);
             toPayment.Width = 150;
             toPayment.Height = 30;
+            toPayment.Name = "toPayment";
             toPayment.Click += (sender, e) =>
             {
-                //לבדוק כמה כסף הכניס ולהחזיר עודף
-                //לבדוק אם המוצר נגמר ואם כן להודיע לספק
-                //לכתוב את הרכישה בקובץ טקסט
-                //להדפיס לו את המוצר עם השקית והאריזת מתנה
-                context.Stock.DeleteProduct(product);
+                if(bag.Checked)
+                {
+                    Context.CurrentProduct = new BagDecorator(Context.CurrentProduct);
+                }
+                if (giftWrap.Checked)
+                {
+                    Context.CurrentProduct = new GiftWrapDecorator(Context.CurrentProduct);
+                }
+                money = (double)numericUpDown.Value;
+                ActionsHandler();
             };
             }
 

@@ -10,16 +10,17 @@ namespace SnackMachine.States
     {
         public IState? State { get; set; }
         public Stock Stock { get; set; }
-        public ProductType CurrentProduct { get; set; }//enum
+        public Product CurrentProduct { get; set; }//enum
 
-        public Context(IState initialState)
+        public Context(IState initialState, Stock stock)
         {
             State = initialState;
-            Stock = new Stock();
+            Stock = stock;
         }
         public void ChangeMode(IState state)
         {
             State = state;
+            state.Context = this;
         }
 
         

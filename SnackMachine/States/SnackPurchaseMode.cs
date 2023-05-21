@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Unipluss.Sign.ExternalContract.Entities;
 
 namespace SnackMachine.States
@@ -10,55 +12,86 @@ namespace SnackMachine.States
     public class SnackPurchaseMode : IState
     {
         public static Form form { get; set; } = Application.OpenForms["form1"];
-        public Context context { get; set; }
+        public Context Context { get; set; }
 
-        public SnackPurchaseMode()
+        public SnackPurchaseMode(Context context)
         {
-            context = new Context(this);
+            Context = context;
         }
         public void ActionsHandler()
         {
             throw new NotImplementedException();
         }
 
-        public void ButtonsHandler(Product p)
-        {
-            int x = 200;
-            Label? title = form.Controls.Find("title", false).FirstOrDefault() as Label;
-            title.Text = "כל החטיפים מיוצרים מקמח שנטחן לאחר הפסח, במיוחד הבמבה";
-
-            Button? coldDrinkBtn = form.Controls.Find("coldDrinkBtn", false).FirstOrDefault() as Button;
-            Button? hotDrinkBtn = form.Controls.Find("hotDrinkBtn", false).FirstOrDefault() as Button;
-            Button? snackBtn = form.Controls.Find("snackBtn", false).FirstOrDefault() as Button;
-
-            form.Controls.Remove(coldDrinkBtn);
-            form.Controls.Remove(hotDrinkBtn);
-            form.Controls.Remove(snackBtn);
-
-            foreach (var item in context.Stock.Snacks)
-            {
-                Button btn = new Button();
-                form.Controls.Add(btn);
-                string name = item.Key.Name;
-
-                btn.Width = 150;
-                btn.Height = 30;
-                btn.Text = $"{name} ₪{item.Key.Price}";
-                btn.Location = new Point(x += 100, 200);
-                btn.Name = name;
-                btn.Click += (sender, e) =>
-                {
-                    Product product = context.Stock.GetProduct(name);
-                    PaymentMode paymentMode = new PaymentMode();
-                    context.ChangeMode(paymentMode);
-                    context.State.ButtonsHandler(product);
-                };
-            }
-        }
-
         public void ButtonsHandler()
         {
-            throw new NotImplementedException();
+            form.Controls.Clear();
+
+            int x = 200;
+            Label? title = new Label();
+            title.Text = "כל החטיפים מיוצרים מקמח שנטחן לאחר הפסח, במיוחד הבמבה";
+            title.Location = new Point(300, 50);
+            title.Width = 500;
+            form.Controls.Add(title);
+
+            Button back = new Button();
+            back.Location = new Point(300, 20);
+            back.Text = "למסך הקודם";
+            back.Width = 200;
+            form.Controls.Add(back);
+            back.Click +=
+                (sender, e) => {
+                    InitialMode initialMode = new(Context);
+                    Context.ChangeMode(initialMode);
+                    Context.State.ButtonsHandler();
+                };
+            
+
+            ComboBox comboBoxProduct = new();
+            comboBoxProduct.Width = 150;
+            comboBoxProduct.Height = 30;
+            foreach (var item in Context.Stock.Snacks)
+            {
+                comboBoxProduct.Items.Add(item.Key);
+            }
+
+            form.Controls.Add(comboBoxProduct);
+            Button selectedButton = new();
+            selectedButton.Width = 150;
+            selectedButton.Height = 30;
+            selectedButton.Text = "בחר מוצר";
+            selectedButton.Location = new Point(300, 200);
+            form.Controls.Add(selectedButton);
+
+            selectedButton.Click += (s, e) =>
+            {
+                selectedButton.Hide();
+                comboBoxProduct.Hide();
+                title.Hide();
+
+                string name = comboBoxProduct.SelectedItem.ToString();
+                double price = 0;
+
+                if (Context.Stock.Snacks[name].Count > 0)
+                {
+                    price = Context.Stock.Snacks[name][0].Price;
+                    Product product = Context.Stock.GetSnacksProduct(name);
+                    Context.CurrentProduct = product;
+                    PaymentMode paymentMode = new PaymentMode(Context);
+                    Context.ChangeMode(paymentMode);
+                    Context.State.ButtonsHandler();
+                }
+                else
+                {
+                    ////חסר מהמלאי
+                }
+
+            };
+            
+
+
+
         }
+
     }
 }

@@ -10,9 +10,13 @@ namespace SnackMachine.Suppliers;
 
 internal class OmerBarLevSupplier : Supplier
 {
-    public OmerBarLevSupplier(string name, string email, Dictionary<Product, List<Product>> products) : base(name, email, products)
+    public OmerBarLevSupplier(string name, string email) : base(name, email)
     {
     }
+    public override void OrderProduct(string productName, int amount)
+    {
 
+        ///ordering from my company
+    }
 
 }
