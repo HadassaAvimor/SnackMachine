@@ -8,11 +8,10 @@ using System.Threading.Tasks;
 
 namespace SnackMachine.Suppliers;
 
-internal class OmerBarLevSupplier : Supplier
+internal class OsemSupplier : Supplier
 {
-    public OmerBarLevSupplier(string name, string email, Dictionary<Product, List<Product>> products) : base(name, email, products)
+    public OsemSupplier(string name, string email, Dictionary<Product, List<Product>> products) : base(name, email, products)
     {
     }
-
-
 }
+

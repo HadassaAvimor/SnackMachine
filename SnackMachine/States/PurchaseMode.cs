@@ -20,7 +20,7 @@ public class PurchaseMode : IState
 
     public void ButtonsHandler()
     {
-        HandleButtons("כל החטיפים מיוצרים מקמח שנטחן לאחר הפסח, במיוחד הבמבה", context.Stock.Snacks);
+        //HandleButtons("כל החטיפים מיוצרים מקמח שנטחן לאחר הפסח, במיוחד הבמבה", context.Stock.Snacks);
     }
 
 
@@ -102,7 +102,7 @@ public class PurchaseMode : IState
         throw new NotImplementedException();
     }
 
-    public static void HandleButtons<T>(string text, Dictionary<T, int> products)
+    public static void HandleButtons<T>(string text, Dictionary<Snack, List<Product>> products)
         where T : Product
     {
         int x = 200;
@@ -134,5 +134,13 @@ public class PurchaseMode : IState
         }
     }
 
-    
+    public void ButtonsHandler(string s)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void ButtonsHandler(Product product)
+    {
+        throw new NotImplementedException();
+    }
 }

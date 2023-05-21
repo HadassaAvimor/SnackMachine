@@ -3,29 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Unipluss.Sign.ExternalContract.Entities;
 
 namespace SnackMachine.States
 {
-    public class SnackPurchaseMode : IState
+    public class HotDrinkPurchaseMode : IState
     {
-        public static Form form { get; set; } = Application.OpenForms["form1"];
+        public static Form form = Application.OpenForms["form1"];
         public Context context { get; set; }
+        //public Button BackBtn { get; set; } = form.Controls.Find("back", false).First() as Button;
 
-        public SnackPurchaseMode()
+        public HotDrinkPurchaseMode()
         {
             context = new Context(this);
         }
         public void ActionsHandler()
         {
-            throw new NotImplementedException();
+            
         }
 
-        public void ButtonsHandler(Product p)
+        public void ButtonsHandler(Product product)
         {
             int x = 200;
             Label? title = form.Controls.Find("title", false).FirstOrDefault() as Label;
-            title.Text = "כל החטיפים מיוצרים מקמח שנטחן לאחר הפסח, במיוחד הבמבה";
+            title.Text = "פיהוק הוא צעקה שקטה לקפה";
 
             Button? coldDrinkBtn = form.Controls.Find("coldDrinkBtn", false).FirstOrDefault() as Button;
             Button? hotDrinkBtn = form.Controls.Find("hotDrinkBtn", false).FirstOrDefault() as Button;
@@ -35,10 +35,11 @@ namespace SnackMachine.States
             form.Controls.Remove(hotDrinkBtn);
             form.Controls.Remove(snackBtn);
 
-            foreach (var item in context.Stock.Snacks)
+            foreach (var item in context.Stock.HotDrinks)
             {
                 Button btn = new Button();
                 form.Controls.Add(btn);
+
                 string name = item.Key.Name;
 
                 btn.Width = 150;
@@ -56,9 +57,6 @@ namespace SnackMachine.States
             }
         }
 
-        public void ButtonsHandler()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

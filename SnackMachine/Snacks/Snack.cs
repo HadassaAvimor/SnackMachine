@@ -10,6 +10,7 @@ namespace SnackMachine.Snacks
     {
         public Snack(string name, double price) : base(name, price)
         {
+            Type = ProductType.snack;
         }
     }
 }

@@ -12,15 +12,20 @@ namespace SnackMachine
     public class Machine
     {
         public IState State { get; set; }
+        public InitialMode InitialMode { get; set; } = new InitialMode();
         public PurchaseMode PurchaseMode { get; set; } = new PurchaseMode();
+        public SnackPurchaseMode SnackPurchaseMode { get; set; } = new SnackPurchaseMode();
+        public ColdDrinkPurchaseMode ColdDrinkPurchaseMode { get; set; } = new ColdDrinkPurchaseMode();
+        public HotDrinkPurchaseMode HotDrinkPurchaseMode { get; set; } = new HotDrinkPurchaseMode();
         public PaymentMode PaymentMode { get; set; } = new PaymentMode();
         public AdminMode AdminMode { get; set; } = new AdminMode();
-        public Context context { get; set; }
-        public Stock stock { get; set; }
+        public Context Context { get; set; }
+        public Stock Stock { get; set; }
 
-        public Machine()
+        public Machine(Stock stock)
         {
-            context = new Context(State);
+            Context = new Context(State);
+            Stock = stock;
         }
 
         //אמור להימחק. רק בשביל ההרצה של הבילדר

@@ -32,7 +32,7 @@
             snackBtn = new Button();
             coldDrinkBtn = new Button();
             hotDrinkBtn = new Button();
-            slogen = new Label();
+            back = new Button();
             SuspendLayout();
             // 
             // title
@@ -75,21 +75,22 @@
             hotDrinkBtn.UseVisualStyleBackColor = true;
             hotDrinkBtn.Click += hotDrinkBtn_Click;
             // 
-            // slogen
+            // back
             // 
-            slogen.AutoSize = true;
-            slogen.Location = new Point(347, 373);
-            slogen.Name = "slogen";
-            slogen.Size = new Size(163, 20);
-            slogen.TabIndex = 4;
-            slogen.Text = "אכול ושתה כי מחר נמות";
+            back.Location = new Point(614, 30);
+            back.Name = "back";
+            back.Size = new Size(131, 29);
+            back.TabIndex = 4;
+            back.Text = "למסך הקודם";
+            back.UseVisualStyleBackColor = true;
+            back.Click += back_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 451);
-            Controls.Add(slogen);
+            Controls.Add(back);
             Controls.Add(hotDrinkBtn);
             Controls.Add(coldDrinkBtn);
             Controls.Add(snackBtn);
@@ -106,6 +107,6 @@
         private Button snackBtn;
         private Button coldDrinkBtn;
         private Button hotDrinkBtn;
-        private Label slogen;
+        private Button back;
     }
 }

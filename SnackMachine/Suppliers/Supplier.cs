@@ -1,33 +1,45 @@
-﻿using System;
+﻿using SnackMachine.ColdDrinks;
+using SnackMachine.Snacks;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SnackMachine.Suppliers
-{
-    public abstract class Supplier : StockListeners
-    {
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public Dictionary<Product, List<Product>> Products { get; set; }
+namespace SnackMachine.Suppliers;
 
-        public void AddProduct(Product product, int amount)
+public abstract class Supplier : StockListeners
+{
+    public string Name { get; set; }
+    public string Email { get; set; }
+    public Dictionary<Product, List<Product>> Products { get; set; }
+
+    public Supplier(string name, string email, Dictionary<Product, List<Product>> products)
+    {
+        Name = name;
+        Email = email;
+        Products = products;
+    }
+    public void AddProductToMachine(Product product, int amount)
+    {
+        List<Product> products = new List<Product>();
+
+        for (int i = 0; i < amount; i++)
         {
-            List<Product> products = new List<Product>();
-            for(int i = 0; i < amount; i++)
+            if(product.Type == ProductType.snack)
             {
-                products.Add(new Product(product.Name, product.Price));
+                products.Add(new Snack(product.Name, product.Price));
+            }
+            else if (product.Type == ProductType.coldDrink)
+            {
+                products.Add(new ColdDrink(product.Name, product.Price));
+            }
+            else if (product.Type == ProductType.hotDrink)
+            {
+                products.Add(new HotDrink(product.Name, product.Price));
             }
         }
-        public abstract void AddProductsToMachine(Machine machine, Product product, int amount);
-
-        public Supplier(string name, string email, List<Product> products)
-        {
-            Name = name;
-            Email = email;
-            Products = products;
-        }
-
+        Products.Add(product, products);
     }
+
 }

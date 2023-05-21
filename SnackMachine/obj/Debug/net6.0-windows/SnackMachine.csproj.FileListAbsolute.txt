@@ -76,3 +76,12 @@ C:\Users\אבימור הדסה\Source\Repos\SnackMachinewww\SnackMachine\obj\Deb
 C:\Users\אבימור הדסה\Source\Repos\SnackMachinewww\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.dll
 C:\Users\אבימור הדסה\Source\Repos\SnackMachinewww\SnackMachine\obj\Debug\net6.0-windows\refint\SnackMachine.dll
 C:\Users\אבימור הדסה\Source\Repos\SnackMachinewww\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.pdb
+C:\Users\User\source\repos\SnackMachine\SnackMachine\bin\Debug\net6.0-windows\AutoMapper.dll
+C:\Users\User\source\repos\SnackMachine\SnackMachine\bin\Debug\net6.0-windows\protobuf-net.dll
+C:\Users\User\source\repos\SnackMachine\SnackMachine\bin\Debug\net6.0-windows\ServiceStack.Text.dll
+C:\Users\User\source\repos\SnackMachine\SnackMachine\bin\Debug\net6.0-windows\Unipluss.Sign.Client.Common.dll
+C:\Users\User\source\repos\SnackMachine\SnackMachine\bin\Debug\net6.0-windows\Unipluss.Sign.Client.dll
+C:\Users\User\source\repos\SnackMachine\SnackMachine\bin\Debug\net6.0-windows\Unipluss.Sign.Common.Rest.dll
+C:\Users\User\source\repos\SnackMachine\SnackMachine\bin\Debug\net6.0-windows\Unipluss.Sign.Common.Validation.dll
+C:\Users\User\source\repos\SnackMachine\SnackMachine\bin\Debug\net6.0-windows\Unipluss.Sign.ExternalContract.dll
+C:\Users\User\source\repos\SnackMachine\SnackMachine\obj\Debug\net6.0-windows\SnackMachine.csproj.CopyComplete
