@@ -23,57 +23,6 @@ namespace SnackMachine.States
         public void ButtonsHandler()
         {
             form.ResetButtonsToHotDrinkPurchaseMode();
-            //int x = 200;
-            //form.Controls.Clear();
-
-            //Label? title = new Label();
-            //title.Text = "פיהוק הוא צעקה שקטה לקפה";
-            //title.Location = new Point(300, 50);
-            //title.Width = 500;
-            //form.Controls.Add(title);
-
-            //Button back = new Button();
-            //back.Location = new Point(300, 20);
-            //back.Text = "חזור להתחלה";
-            //back.Width = 200;
-            //form.Controls.Add(back);
-            //back.Click +=
-            //    (sender, e) => {
-            //        InitialMode initialMode = new(Context);
-            //        Context.ChangeMode(initialMode);
-            //        Context.State.ButtonsHandler();
-            //    };
-
-            //foreach (var item in Context.Stock.HotDrinks)
-            //{
-            //    Button btn = new Button();
-            //    form.Controls.Add(btn);
-
-            //    string name = item.Key;
-            //    double price = 0;
-
-            //    if(Context.Stock.HotDrinks.Count > 0)
-            //    {
-            //        price = Context.Stock.HotDrinks[name][0].Price;
-            //        btn.Width = 150;
-            //        btn.Height = 30;
-            //        btn.Text = $"{name} ₪{price}";
-            //        btn.Location = new Point(x += 100, 200);
-            //        btn.Name = name;
-            //        btn.Click += (sender, e) =>
-            //        {
-            //            Product product = Context.Stock.GetHotDrinksProduct(name);
-            //            Context.CurrentProduct = product;
-            //            PaymentMode paymentMode = new PaymentMode(Context);
-            //            Context.ChangeMode(paymentMode);
-            //            Context.State.ButtonsHandler();
-            //        };
-            //    }
-            //    else
-            //    {
-            //       ///חסר מוצר
-            //    }
-            //}
         }
 
         
