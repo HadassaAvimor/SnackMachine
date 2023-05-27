@@ -1,4 +1,5 @@
 ﻿using SnackMachine.ColdDrinks;
+using SnackMachine.HotDrinks;
 using SnackMachine.Snacks;
 using SnackMachine.Suppliers;
 using System.Collections.Generic;
@@ -18,11 +19,11 @@ public class Stock
     //פונקציה שמקבלת סטרינג או אינם ומחזירה את המוצר
     //תעדכן את הספקים
     public Stock(Dictionary<string, List<Product>> snacks, Dictionary<string, 
-        List<Product>> coldDrink, Dictionary<string, List<Product>> hotDrink, Dictionary<string, Supplier> productsSuppliers)
+        List<Product>> coldDrink,  Dictionary<string, Supplier> productsSuppliers)
     {
         Snacks = snacks;
         ColdDrinks = coldDrink; 
-        HotDrinks = hotDrink; 
+        //HotDrinks = hotDrink; 
         ProductsSuppliers = productsSuppliers;
     }
 
@@ -65,21 +66,27 @@ public class Stock
     }
     public Product GetHotDrinksProduct(string productName)
     {
-        if (HotDrinks.ContainsKey(productName))
+        if (productName.Equals("coco"))
         {
-            if (HotDrinks[productName].Count == 5)
-            {
-                ProductsSuppliers[productName].OrderProduct(productName, NUMFORORDERS);
-            }
-            if (HotDrinks[productName].Count == 0)
-            {
-                return null;
-            }
-            Product product = HotDrinks[productName][0];
-            HotDrinks[productName].Remove(product);
-            return product;
+            Coco c = new Coco();
+            c.AddPowder();
+            c.AddSuger();
+            c.AddWater();
+            c.AddMilk();
+
+            return c.GetHotDrink();
         }
+        else if (productName.Equals("cappucino"))
+        {
+            Coffee coffee = new Coffee();
+            coffee.AddPowder();
+            coffee.AddSuger();
+            coffee.AddWater();
+            coffee.AddMilk();
+
+            return coffee.GetHotDrink();
+        }
+
         return null;
-        //מלאי אזל
     }
 }

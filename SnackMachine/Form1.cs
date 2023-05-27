@@ -62,36 +62,46 @@ public partial class Form1 : Form
                 Machine.Context.State.ButtonsHandler();
             };
 
-        foreach (var item in Machine.Context.Stock.HotDrinks)
-        {
+        
             Button btn = new Button();
             Controls.Add(btn);
-
-            string name = item.Key;
-            double price = 0;
-
-            if (Machine.Context.Stock.HotDrinks.Count > 0)
+            btn.Text = "קפוצ'ינו";
+            string name = "cappucino";
+            double price = 10;
+            btn.Width = 150;
+            btn.Height = 30;
+            btn.Text = $"{name} ₪{price}";
+            btn.Location = new Point(x += 100, 200);
+            btn.Name = name;
+            btn.Click += (sender, e) =>
             {
-                price = Machine.Context.Stock.HotDrinks[name][0].Price;
-                btn.Width = 150;
-                btn.Height = 30;
-                btn.Text = $"{name} ₪{price}";
-                btn.Location = new Point(x += 100, 200);
-                btn.Name = name;
-                btn.Click += (sender, e) =>
-                {
-                    Product product = Machine.Context.Stock.GetHotDrinksProduct(name);
-                    Machine.Context.CurrentProduct = product;
-                    PaymentMode paymentMode = new PaymentMode(Machine.Context);
-                    Machine.Context.ChangeMode(paymentMode);
-                    Machine.Context.State.ButtonsHandler();
-                };
-            }
-            else
-            {
-                ///חסר מוצר
-            }
-        }
+                Product product = Machine.Context.Stock.GetHotDrinksProduct(name);
+                Machine.Context.CurrentProduct = product;
+                PaymentMode paymentMode = new PaymentMode(Machine.Context);
+                Machine.Context.ChangeMode(paymentMode);
+                Machine.Context.State.ButtonsHandler();
+            };
+
+        Button btn1 = new Button();
+        Controls.Add(btn1);
+        btn1.Text = "שוקו";
+        string name1 = "coco";
+        double price1 = 10;
+        btn1.Width = 150;
+        btn1.Height = 30;
+        btn1.Text = $"{name1} ₪{price1}";
+        btn1.Location = new Point(x += 100, 200);
+        btn1.Name = name1;
+        btn1.Click += (sender, e) =>
+        {
+            Product product = Machine.Context.Stock.GetHotDrinksProduct(name1);
+            Machine.Context.CurrentProduct = product;
+            PaymentMode paymentMode = new PaymentMode(Machine.Context);
+            Machine.Context.ChangeMode(paymentMode);
+            Machine.Context.State.ButtonsHandler();
+        };
+
+
     }
 
     public void ResetButtonsToColdDrinkPurchaseMode()

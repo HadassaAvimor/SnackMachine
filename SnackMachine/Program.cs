@@ -26,29 +26,29 @@ namespace SnackMachine
                 bamba.Add(s);
             }
 
-            List<Product> cappucino = new();
-            for (int i = 0; i < 10; i++)
-            {
-                Coffee coffee = new Coffee();
-                coffee.AddPowder();
-                coffee.AddSuger();
-                coffee.AddWater();
-                coffee.AddMilk();
+            //List<Product> cappucino = new();
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    Coffee coffee = new Coffee();
+            //    coffee.AddPowder();
+            //    coffee.AddSuger();
+            //    coffee.AddWater();
+            //    coffee.AddMilk();
                 
-                cappucino.Add(coffee.GetHotDrink());
-            }
+            //    cappucino.Add(coffee.GetHotDrink());
+            //}
 
-            List<Product> coco = new();
-            for (int i = 0; i < 7; i++)
-            {
-                Coco c = new Coco();
-                c.AddPowder();
-                c.AddSuger();
-                c.AddWater();
-                c.AddMilk();
+            //List<Product> coco = new();
+            //for (int i = 0; i < 7; i++)
+            //{
+            //    Coco c = new Coco();
+            //    c.AddPowder();
+            //    c.AddSuger();
+            //    c.AddWater();
+            //    c.AddMilk();
 
-                coco.Add(c.GetHotDrink());
-            }
+            //    coco.Add(c.GetHotDrink());
+            //}
 
             List<Product> cocaCola = new();
             for (int i = 0; i < 3; i++)
@@ -73,9 +73,9 @@ namespace SnackMachine
             coldDrinks.Add("fanta", fanta);
 
 
-            Dictionary<string, List<Product>> hotDrinks = new();
-            hotDrinks.Add("cappucino", cappucino);
-            hotDrinks.Add("coco", coco);
+            //Dictionary<string, List<Product>> hotDrinks = new();
+            //hotDrinks.Add("cappucino", cappucino);
+            //hotDrinks.Add("coco", coco);
 
 
             Dictionary<string, Supplier> productsSuppliers = new();
@@ -89,7 +89,7 @@ namespace SnackMachine
             productsSuppliers.Add("beasley", omer);
             productsSuppliers.Add("bamba", omer);
 
-            Stock stock = new Stock(snacks, coldDrinks, hotDrinks, productsSuppliers);
+            Stock stock = new Stock(snacks, coldDrinks, productsSuppliers);
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1(stock));
         }
