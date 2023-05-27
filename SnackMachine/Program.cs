@@ -1,4 +1,5 @@
 using SnackMachine.ColdDrinks;
+using SnackMachine.HotDrinks;
 using SnackMachine.Snacks;
 using SnackMachine.Suppliers;
 
@@ -12,8 +13,6 @@ namespace SnackMachine
         [STAThread]
         static void Main()
         {
-
-
             List<Product> beasley = new();
             for (int i = 0; i < 10; i++)
             {
@@ -30,15 +29,25 @@ namespace SnackMachine
             List<Product> cappucino = new();
             for (int i = 0; i < 10; i++)
             {
-                HotDrink c = new("קפוצ'ינו", 10);
-                cappucino.Add(c);
+                Coffee coffee = new Coffee();
+                coffee.AddPowder();
+                coffee.AddSuger();
+                coffee.AddWater();
+                coffee.AddMilk();
+                
+                cappucino.Add(coffee.GetHotDrink());
             }
 
             List<Product> coco = new();
             for (int i = 0; i < 7; i++)
             {
-                HotDrink c = new("שוקו פרלינים", 16);
-                coco.Add(c);
+                Coco c = new Coco();
+                c.AddPowder();
+                c.AddSuger();
+                c.AddWater();
+                c.AddMilk();
+
+                coco.Add(c.GetHotDrink());
             }
 
             List<Product> cocaCola = new();

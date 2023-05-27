@@ -26,7 +26,6 @@ namespace SnackMachine.States
 
         public void ButtonsHandler()
         {
-            //form.Controls.Clear();
             int x = 200;
 
             form.Controls.Clear();
