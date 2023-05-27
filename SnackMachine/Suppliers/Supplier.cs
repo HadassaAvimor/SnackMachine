@@ -18,7 +18,7 @@ public abstract class Supplier
     {
         Name = name;
         Email = email;
-        //Products = products;
+        
     }
     //public void AddProductToMachine(Product product, int amount)
     //{

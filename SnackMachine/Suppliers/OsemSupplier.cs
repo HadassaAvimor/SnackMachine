@@ -16,7 +16,6 @@ internal class OsemSupplier : Supplier
 
     public override void OrderProduct(string productName, int amount)
     {
-
         ///ordering from my company
     }
 }
