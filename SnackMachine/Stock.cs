@@ -9,6 +9,8 @@ namespace SnackMachine;
 public class Stock
 {
     const int NUMFORORDERS = 10;
+    int snacksMin = 20;
+    int coldDrinkMin = 5;
     public Dictionary<string, List<Product>> Snacks { get; }
     public Dictionary<string, List<Product>> ColdDrinks { get; }
     public Dictionary<string, List<Product>> HotDrinks { get; }
@@ -16,8 +18,6 @@ public class Stock
     public Dictionary<string, Supplier> ProductsSuppliers { get; }
 
 
-    //פונקציה שמקבלת סטרינג או אינם ומחזירה את המוצר
-    //תעדכן את הספקים
     public Stock(Dictionary<string, List<Product>> snacks, Dictionary<string, 
         List<Product>> coldDrink,  Dictionary<string, Supplier> productsSuppliers)
     {
@@ -31,7 +31,7 @@ public class Stock
     {
         if (Snacks.ContainsKey(productName))
         {
-            if (Snacks[productName].Count == 5)
+            if (Snacks[productName].Count == snacksMin)
             {
                 ProductsSuppliers[productName].OrderProduct(productName, NUMFORORDERS);
             }
@@ -50,7 +50,7 @@ public class Stock
     {
         if (ColdDrinks.ContainsKey(productName))
         {
-            if (ColdDrinks[productName].Count == 5)
+            if (ColdDrinks[productName].Count == coldDrinkMin)
             {
                 ProductsSuppliers[productName].OrderProduct(productName, NUMFORORDERS);
             }
