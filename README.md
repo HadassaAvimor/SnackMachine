@@ -16,6 +16,7 @@ The report of the actions performed in the machine on that day will be saved in 
 The project uses the following infrastructures:
 
 .NET Framework
+
 Windows Forms
 
 ### Open-closed principle:
