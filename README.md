@@ -17,6 +17,7 @@ The project uses the following infrastructures:
 
 .NET Framework
 
+
 Windows Forms
 
 ### Open-closed principle:
